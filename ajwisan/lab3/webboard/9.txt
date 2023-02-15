@@ -1,0 +1,5 @@
+id: 9<br>
+name: awawda<br>
+msg: awdawd<br>
+date: 2023-Jan-Fri<br>
+<a href='seeDetail.php?id=9'><button type='button'>See Detail</button></a><hr>

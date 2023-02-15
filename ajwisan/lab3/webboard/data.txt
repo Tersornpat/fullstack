@@ -1,0 +1,9 @@
+id: 1<br>
+name: qweqweqw<br>
+msg: qweqweq<br>
+date: 2023-Jan-Fri<br>
+<a href='seeDetail.php?id=1'><button type='button'>See Detail</button></a><hr>id: 1<br>
+name: qweqweqw<br>
+msg: qweqweq<br>
+date: 2023-Jan-Fri<br>
+<a href='seeDetail.php?id=1'><button type='button'>See Detail</button></a><hr>

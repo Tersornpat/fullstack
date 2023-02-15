@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample form</title>
+</head>
+<body bgcolor="White" text="Black">
+    <h2>Profile</h2>
+    <form method="post" action="">
+        <pre>
+            Hidden <input type="Hidden" name="HiddenText" value="This text is hidden">
+            FirstName <input type="text" name="FName" size="30" maxlength="30">
+            LastName <input type="text" name="LName" size="30" maxlength="30">
+            UserName <input type="text" name="UName" size="10" maxlength="10">
+            Password <input type="Password" name="Pswd" size="30" maxlength="30">
+            Address <input type="text" name =Address size="40" maxlength="60">
+            <br>
+            Status 
+            <select name="Status" Size="1">
+                <option Selected> Single </option>
+                <Option>Marry</Option>
+            </select>
+            <br>
+            Sex 
+            <input type="Radio" name="a" value="M"> Male
+            <input type="Radio" name="b" value="F" > Female
+            <input type="Radio" name="a"  value="U" Checked> Undefined
+            <input type="Radio" name="b" value="F" > Female
+            <input type="Radio" name="a"  value="U" Checked> Undefined
+            <input type="Radio" name="b"  value="U" Checked> Undefined
+            <br>
+            Receipty Desired
+            <input type="Radio" name="receipty" value="yes"> Yes
+            <input type="Radio" name="receipty" value="no" Checked> No  <br>       
+            Any Special Instructon? Specify Below: <br>
+            <textarea type="Instruction" name="comment" rows="2" cols="60" placeholder="Type here!"></textarea>
+        </pre>
+        <input type="Submit" Value="Send Me!">
+        <input type="Reset" Value="Start Over!">
+    </form>
+</body>
+</html>
