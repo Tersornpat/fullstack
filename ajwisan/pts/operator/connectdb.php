@@ -1,15 +1,13 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "pts";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+    $username = "doadmin";
+    $password = "AVNS_ZGqDEVhYzUgKYSmPDXX";
+    $servername = "fullstackdb-do-user-13569317-0.b.db.ondigitalocean.com:25060";
+    $dbname = "pts";
+    $conn = new mysqli($servername, $username, $password,$dbname) or die("Connect failed: %s\n". $conn -> error);
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
 
 // $showdata = "SELECT * FROM M_Member";
 // $result = $conn->query($showdata);

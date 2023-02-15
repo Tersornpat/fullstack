@@ -1,45 +1,40 @@
--- phpMyAdmin SQL Dump
--- version 5.2.0
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Feb 15, 2023 at 06:56 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `pts`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pts_employee`
---
-
 CREATE TABLE `pts_employee` (
-  `E_ID` int(11) NOT NULL,
-  `E_Username` varchar(20) NOT NULL,
+  `E_ID` int(11) Primary Key  AUTO_INCREMENT,
+  `E_Username` varchar(20) UNIQUE NOT NULL,
   `E_Password` varchar(20) NOT NULL,
   `E_Name` varchar(20) NOT NULL,
   `E_Surname` varchar(20) NOT NULL,
   `E_Role` varchar(10) NOT NULL,
   `E_Address` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+);
 
---
--- Dumping data for table `pts_employee`
---
+CREATE TABLE `pts_order` (
+  `Order_ID` int(11) Primary Key ,
+  `E_ID` int(11),
+  `Order_Date` datetime DEFAULT NULL,
+  `Order_Price` float DEFAULT NULL
+  FOREIGN KEY (`E_ID`) REFERENCES `pts_employee` (`E_ID`);
+);
+
+CREATE TABLE `pts_stock` (
+  `Stock_ID` int(11) Primary KeyAUTO_INCREMENT,
+  `Stock_Name` varchar(255) NOT NULL,
+  `Quantity` int(11) NOT NULL,
+  `Priceperunit` int(11) NOT NULL
+);
+
+CREATE TABLE `pts_orderdetail` (
+  `ID` int(11) PRIMARY KEY AUTO_INCREMENT,
+  `Order_ID` int(11) NOT NULL,
+  `Stock_ID` int(11) NOT NULL,
+  `Stock_Name` varchar(255) DEFAULT NULL,
+  `Price` int(11) DEFAULT NULL,
+  `Priceperunit` int(11) DEFAULT NULL,
+  `Amount` int(11) DEFAULT NULL,
+  `Update_Date` datetime DEFAULT NULL,
+  FOREIGN KEY (`Order_ID`) REFERENCES `pts_order` (`Order_ID`),
+  FOREIGN KEY (`Stock_ID`) REFERENCES `pts_stock` (`Stock_ID`)
+);
 
 INSERT INTO `pts_employee` (`E_ID`, `E_Username`, `E_Password`, `E_Name`, `E_Surname`, `E_Role`, `E_Address`) VALUES
 (101, 'admin', '1', 'John', 'Admin', 'admin', 'amhome'),
@@ -47,23 +42,6 @@ INSERT INTO `pts_employee` (`E_ID`, `E_Username`, `E_Password`, `E_Name`, `E_Sur
 (103, 'user2', '2', 'lerbronc', 'jame', 'user', 'amasd'),
 (104, 'user3', '3', 'we', 'qw', 'user', 'ushome'),
 (105, 'user4', '4', 'jim', 'we', 'user', 'amasd');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pts_order`
---
-
-CREATE TABLE `pts_order` (
-  `Order_ID` int(11) NOT NULL,
-  `E_ID` int(11) DEFAULT NULL,
-  `Order_Date` datetime DEFAULT NULL,
-  `Order_Price` float DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data for table `pts_order`
---
 
 INSERT INTO `pts_order` (`Order_ID`, `E_ID`, `Order_Date`, `Order_Price`) VALUES
 (302, 102, '2023-02-09 00:00:00', 1210),
@@ -84,26 +62,17 @@ INSERT INTO `pts_order` (`Order_ID`, `E_ID`, `Order_Date`, `Order_Price`) VALUES
 (317, 104, '2023-02-11 11:21:24', 2920),
 (318, 105, '2023-02-11 11:21:50', 57990);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `pts_orderdetail`
---
-
-CREATE TABLE `pts_orderdetail` (
-  `ID` int(11) NOT NULL,
-  `Order_ID` int(11) DEFAULT NULL,
-  `Stock_ID` int(11) DEFAULT NULL,
-  `Stock_Name` varchar(255) DEFAULT NULL,
-  `Price` int(11) DEFAULT NULL,
-  `Priceperunit` int(11) DEFAULT NULL,
-  `Amount` int(11) DEFAULT NULL,
-  `Update_Date` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data for table `pts_orderdetail`
---
+INSERT INTO `pts_stock` (`Stock_ID`, `Stock_Name`, `Quantity`, `Priceperunit`) VALUES
+(201, 'Apple Inc', 99, 10),
+(202, 'Microsoft Corporation', 277, 20),
+(203, 'Amazon.com, Inc', 634, 30),
+(204, 'Tesla, Inc', 880, 40),
+(205, 'Alphabet Inc', 1381, 50),
+(206, 'Berkshire Hathaway Inc', 41, 60),
+(207, 'Facebook, Inc', 1381, 70),
+(208, 'Johnson & Johnson', 356, 80),
+(209, 'Procter & Gamble Co', 955, 90),
+(210, 'Vanguard Total Stock Market ETF', 649, 100);
 
 INSERT INTO `pts_orderdetail` (`ID`, `Order_ID`, `Stock_ID`, `Stock_Name`, `Price`, `Priceperunit`, `Amount`, `Update_Date`) VALUES
 (1, 302, 202, 'Microsoft Corporation', 660, 20, 33, '2023-02-09 00:00:00'),
@@ -176,102 +145,3 @@ INSERT INTO `pts_orderdetail` (`ID`, `Order_ID`, `Stock_ID`, `Stock_Name`, `Pric
 (68, 318, 204, 'Tesla, Inc', 22200, 40, 555, '2023-02-11 11:21:50'),
 (69, 318, 205, 'Alphabet Inc', 2700, 50, 54, '2023-02-11 11:21:50'),
 (70, 318, 207, 'Facebook, Inc', 31080, 70, 444, '2023-02-11 11:21:50');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pts_stock`
---
-
-CREATE TABLE `pts_stock` (
-  `Stock_ID` int(11) NOT NULL,
-  `Stock_Name` varchar(255) NOT NULL,
-  `Quantity` int(11) NOT NULL,
-  `Priceperunit` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data for table `pts_stock`
---
-
-INSERT INTO `pts_stock` (`Stock_ID`, `Stock_Name`, `Quantity`, `Priceperunit`) VALUES
-(201, 'Apple Inc', 99, 10),
-(202, 'Microsoft Corporation', 277, 20),
-(203, 'Amazon.com, Inc', 634, 30),
-(204, 'Tesla, Inc', 880, 40),
-(205, 'Alphabet Inc', 1381, 50),
-(206, 'Berkshire Hathaway Inc', 41, 60),
-(207, 'Facebook, Inc', 1381, 70),
-(208, 'Johnson & Johnson', 356, 80),
-(209, 'Procter & Gamble Co', 955, 90),
-(210, 'Vanguard Total Stock Market ETF', 649, 100);
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `pts_employee`
---
-ALTER TABLE `pts_employee`
-  ADD PRIMARY KEY (`E_ID`),
-  ADD UNIQUE KEY `E_Username` (`E_Username`);
-
---
--- Indexes for table `pts_order`
---
-ALTER TABLE `pts_order`
-  ADD PRIMARY KEY (`Order_ID`),
-  ADD KEY `E_ID` (`E_ID`);
-
---
--- Indexes for table `pts_orderdetail`
---
-ALTER TABLE `pts_orderdetail`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `Order_ID` (`Order_ID`),
-  ADD KEY `Stock_ID` (`Stock_ID`);
-
---
--- Indexes for table `pts_stock`
---
-ALTER TABLE `pts_stock`
-  ADD PRIMARY KEY (`Stock_ID`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `pts_employee`
---
-ALTER TABLE `pts_employee`
-  MODIFY `E_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
-
---
--- AUTO_INCREMENT for table `pts_orderdetail`
---
-ALTER TABLE `pts_orderdetail`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `pts_order`
---
-ALTER TABLE `pts_order`
-  ADD CONSTRAINT `pts_order_ibfk_1` FOREIGN KEY (`E_ID`) REFERENCES `pts_employee` (`E_ID`);
-
---
--- Constraints for table `pts_orderdetail`
---
-ALTER TABLE `pts_orderdetail`
-  ADD CONSTRAINT `pts_orderdetail_ibfk_1` FOREIGN KEY (`Order_ID`) REFERENCES `pts_order` (`Order_ID`),
-  ADD CONSTRAINT `pts_orderdetail_ibfk_2` FOREIGN KEY (`Stock_ID`) REFERENCES `pts_stock` (`Stock_ID`);
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
