@@ -25,12 +25,11 @@
         $_SESSION['surname']=$row["E_Surname"];
         $_SESSION['key']=$row["E_Role"];
         $_SESSION['address']=$row["E_Address"];
-        
+        session_write_close();
+
         if($_SESSION['key'] == "admin"){
-            session_write_close();
             header("Location: ./operator/index.php");
         }else {
-            session_write_close();
             header("Location: ./user/index.php");
         }
     }else {

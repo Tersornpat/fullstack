@@ -60,6 +60,7 @@
                                 <td><a href='seeorderdetail.php?orderid=".$row['Order_ID']."'><button><font size=4>SEE ORDER DETAIL</font></button></a></td>
                             </tr>";
                     }
+                    session_write_close();
                 ?>
             </table>
     </center>
