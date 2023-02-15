@@ -1,6 +1,6 @@
 <?php
-    session_write_close(); 
     include "./session.php";
+    session_write_close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
