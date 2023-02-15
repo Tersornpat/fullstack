@@ -17,9 +17,7 @@
     $conn->close();
 
     $rowcount = mysqli_num_rows($result);
-
     $row = $result->fetch_assoc();
-
     if($rowcount == 1){
 
         $_SESSION['id']=$row["E_ID"];
