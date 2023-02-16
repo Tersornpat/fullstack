@@ -39,7 +39,7 @@
         // );";
         // $query = "INSERT INTO pts_employee VALUES (1,'sornpat2','ssss','sornpat','Amthiangtham','admin','1234 wk strt');";
 
-        $query = "SELECT * FROM test.pts_employee;";
+        $query = "SELECT * FROM fullstack.customer;";
         
         $result = $conn->query($query);
         $conn->close();
