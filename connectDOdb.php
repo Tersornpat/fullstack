@@ -3,7 +3,7 @@
     $port=25060;
     $socket="";
     $user="tersornpat";
-    $password="";
+    $password="AVNS_ZGqDEVhYzUgKYSmPDXX";
     $dbname="fullstack";
 
     $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
