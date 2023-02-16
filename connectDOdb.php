@@ -1,6 +1,6 @@
 <?php
     $username = "doadmin";
-    $password = "AVNS_ZGqDEVhYzUgKYSmPDXX";
+    $password = "";
     $servername = "fullstackdb-do-user-13569317-0.b.db.ondigitalocean.com:25060";
     $dbname = "test";
     $conn = new mysqli($servername, $username, $password,$dbname);

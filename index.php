@@ -12,7 +12,8 @@
         <br>
         <a href="./ajakan/1"><button type="button">Button To ATM</button></a>
         <a href="./ajwisan/pts"><button type="button">Button To AJwisan pts</button></a>
-    <table>
+        <br>
+        <table>
         <tr>
             <th>E_ID</th>
             <th>E_Username</th>
