@@ -41,8 +41,8 @@
 
         $query = "SELECT * FROM fullstack.customer;";
         
-        $result = $conn->query($query);
-        $conn->close();
+        $result = $con->query($query);
+        $con->close();
 
         echo [$result];
 
