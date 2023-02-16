@@ -15,6 +15,7 @@
         <br>
         <table>
         <tr>
+            <th>11</th>
             <th>E_ID</th>
             <th>E_Username</th>
             <th>E_Password</th>
@@ -45,6 +46,7 @@
 
         while($row = $result->fetch_assoc()) {
             echo "  <tr>
+                        <td>1</td>
                         <td>".$row["E_ID"]."</td>
                         <td><b>".$row["E_Username"]."</b></td>
                         <td>".$row["E_Password"]."</td>
