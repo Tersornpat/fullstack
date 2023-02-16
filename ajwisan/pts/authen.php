@@ -15,25 +15,27 @@
                 FROM pts_employee WHERE E_Username='$username' AND E_Password='$password';";
     $result = $conn->query($showdata);
     $conn->close();
-
-    $rowcount = mysqli_num_rows($result);
     $row = $result->fetch_assoc();
-    if($rowcount == 1){
+    echo $row["E_ID"]."   ".$row["E_Name"]."   ".$row["E_Surname"]."   ".$row["E_Role"]."   ".$row["Member_Tel"]."<br>";
 
-        $_SESSION['id']=$row["E_ID"];
-        $_SESSION['name']=$row["E_Name"];
-        $_SESSION['surname']=$row["E_Surname"];
-        $_SESSION['key']=$row["E_Role"];
-        $_SESSION['address']=$row["E_Address"];
+    // $rowcount = mysqli_num_rows($result);
+    // $row = $result->fetch_assoc();
+    // if($rowcount == 1){
 
-        if($_SESSION['key'] == "admin"){
-            header("Location: ./operator/index.php");
-        }else {
-            header("Location: ./user/index.php");
-        }
-    }else {
-        header("Location: index.php");
-    }
+    //     $_SESSION['id']=$row["E_ID"];
+    //     $_SESSION['name']=$row["E_Name"];
+    //     $_SESSION['surname']=$row["E_Surname"];
+    //     $_SESSION['key']=$row["E_Role"];
+    //     $_SESSION['address']=$row["E_Address"];
+
+    //     if($_SESSION['key'] == "admin"){
+    //         header("Location: ./operator/index.php");
+    //     }else {
+    //         header("Location: ./user/index.php");
+    //     }
+    // }else {
+    //     header("Location: index.php");
+    // }
 
     // while($row = $result->fetch_assoc()) {
     //         echo $row["E_ID"]."   ".$row["E_Name"]."   ".$row["E_Surname"]."   ".$row["E_Role"]."   ".$row["Member_Tel"]."<br>";
