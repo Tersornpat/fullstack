@@ -13,13 +13,11 @@
 <body style="margin:0;border:0;padding:0;">
     <center>
         <?php
-            $_SESSION["test"] = "Tersornpat";
             $username = $_POST["username"];
             $password = $_POST["password"];
             if($username == "admin" && $password == "1234"){
                 echo "<script>alert('Login Success')</script>";
                 echo "<Iframe width='100%' height='962px' src='resume.html'></Iframe>";
-                echo  $_SESSION["test"]. $_SESSION["test"]  .$_SESSION["test"] . $_SESSION["test"];
             }else{
                 echo "<script>alert('Login Failed')</script>";
                 echo "<h1>Login failed</h1><br><a href='signin.html'><input type='submit' value='back'></a>";
