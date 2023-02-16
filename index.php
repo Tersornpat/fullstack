@@ -44,6 +44,8 @@
         $result = $conn->query($query);
         $conn->close();
 
+        echo [$result];
+
         while($row = $result->fetch_assoc()) {
             echo "  <tr>
                         <td>1</td>
