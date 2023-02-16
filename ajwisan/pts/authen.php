@@ -25,7 +25,6 @@
         $_SESSION['surname']=$row["E_Surname"];
         $_SESSION['key']=$row["E_Role"];
         $_SESSION['address']=$row["E_Address"];
-        session_write_close();
 
         if($_SESSION['key'] == "admin"){
             header("Location: ./operator/index.php");
@@ -35,4 +34,8 @@
     }else {
         header("Location: index.php");
     }
+
+    // while($row = $result->fetch_assoc()) {
+    //         echo $row["E_ID"]."   ".$row["E_Name"]."   ".$row["E_Surname"]."   ".$row["E_Role"]."   ".$row["Member_Tel"]."<br>";
+        // }
 ?>
