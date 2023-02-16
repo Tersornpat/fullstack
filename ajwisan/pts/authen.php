@@ -6,12 +6,13 @@
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    $showdata = "SELECT 	
-                    E_ID,	
-                    E_Name,	
-                    E_Surname,
-                    E_Role,
-                    E_Address
+    $showdata = "SELECT
+                    * 	
+                    -- E_ID,	
+                    -- E_Name,	
+                    -- E_Surname,
+                    -- E_Role,
+                    -- E_Address
                 FROM pts_employee WHERE E_Username='$username' AND E_Password='$password';";
     $result = $conn->query($showdata);
     $conn->close();
