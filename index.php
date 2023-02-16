@@ -26,8 +26,18 @@
         </tr>
     <?php
 
-        include "connectDOdb.php";
-        // $query = "
+    $username = "doadmin";
+    $password = "AVNS_ZGqDEVhYzUgKYSmPDXX";
+    $servername = "fullstackdb-do-user-13569317-0.b.db.ondigitalocean.com:25060";
+    $dbname = "test";
+    $conn = new mysqli($servername, $username, $password,$dbname);
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    echo "Connected successfully <br>";
+    
+    // $query = "
         // CREATE TABLE `pts_employee` (
         //     `E_ID` int(11) NOT NULL Primary KEY,
         //     `E_Username` varchar(20) NOT NULL,
@@ -39,10 +49,9 @@
         // );";
         // $query = "INSERT INTO pts_employee VALUES (1,'sornpat2','ssss','sornpat','Amthiangtham','admin','1234 wk strt');";
 
-        $query = "SELECT * FROM fullstack.customer;";
-        
-        $result = $con->query($query);
-        $con->close();
+        $query = "Select * FROM pts_employee;";
+        $result = $conn->query($query);
+        $conn->close();
 
         echo [$result];
 
