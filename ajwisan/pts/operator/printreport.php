@@ -1,8 +1,5 @@
 <?php
-    session_start();
-    if ($_SESSION['key'] != "admin"){
-        header('Location: /pts/index.php');
-    }
+    include "session.php";
 ?>
 
 <!DOCTYPE html>
@@ -171,7 +168,7 @@
                             </td>
                         </tr>
                         <tr height=15%>
-                            <td colspan=5>ก</td>
+                            <td colspan=4>ก</td>
                             <td>12000</td>
                         </tr>
                     </table>
