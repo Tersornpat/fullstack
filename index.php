@@ -11,8 +11,7 @@
         <h1>This is my HomePage</h1>
         <br>
         <a href="./ajakan/1"><button type="button">Button To ATM</button></a>
-        <a href="./ajwisan/pts"><button type="button">Button To AJwisan pts</button></a>
-        <h1> Try</h1>
+        <a href="./ajwisan/pts"><button type="button" style="width:100px;height;30px">Button To AJwisan pts</button></a>
         <br>
         <table>
         <tr>
