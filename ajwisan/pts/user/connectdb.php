@@ -3,10 +3,13 @@
     $password = "1234";
     $servername = "128.199.234.176";
     $dbname = "pts";
-    $conn = new mysqli($servername, $username, $password,$dbname);
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+    // Create connection
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
+    //Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+        echo ' not connected';
     }
-    echo "Connected successfully <br>";
+    else
+        echo 'connected';
 ?>
