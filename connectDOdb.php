@@ -1,6 +1,6 @@
 <?php
-    $username = "root";
-    $password = "";
+    $username = "fullstack";
+    $password = "1234";
     $servername = "localhost";
     $dbname = "pts";
     $conn = new mysqli($servername, $username, $password,$dbname);
