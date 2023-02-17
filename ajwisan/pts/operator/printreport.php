@@ -152,7 +152,6 @@
                                         //     }
                                         // }
 
-
                                         // $i = 0;
                                         // while($row = $result->fetch_assoc()&&$i<8) {
                                         //     echo "<tr valign=center align='center' height=10%>
@@ -172,7 +171,8 @@
                             </td>
                         </tr>
                         <tr height=15%>
-
+                            <td colspan=5>ก</td>
+                            <td>12000</td>
                         </tr>
                     </table>
                 </td>
