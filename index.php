@@ -8,7 +8,7 @@
 </head>
 <body style="margin: 0px;padding: 0px;">
     <center>
-        <h1>This is my HomePage</h1>
+        <h1>This is my homepage</h1>
         <br>
         <a href="./ajakan/1"><button type="button">Button To ATM</button></a>
         <a href="./ajwisan/pts"><button type="button" style="width:200px;height;30px">Button To AJwisan pts</button></a>
