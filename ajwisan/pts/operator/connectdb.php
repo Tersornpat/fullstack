@@ -1,6 +1,6 @@
 <?php
     $username = "tersornpat";
-    $password = " ";
+    $password = "@B9xGthAocBu)TSl";
     $servername = "128.199.234.176";
     $dbname = "pts";
     $conn = new mysqli($servername, $username, $password,$dbname);
