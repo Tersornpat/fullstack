@@ -10,8 +10,10 @@
     <center>
         <h1>This is my homepage</h1>
         <br>
-        <a href="./ajakan/1"><button type="button">Button To ATM</button></a>
-        <a href="./ajwisan/pts"><button type="button" style="width:200px;height;30px">Button To AJwisan pts</button></a>
+        <a href="./ajakan/1"><button type="button" style="width:400px;height;50px">Button To ATM</button></a>
+        <a href="./ajwisan/pts"><button type="button" style="width:400px;height;50px">Button To AJwisan pts</button></a>
+        <a href="./shortcourse"><button type="button" style="width:400px;height;50px">Button To Shortcourse</button></a>
+        
         <!-- <br>
         <table>
         <tr>
